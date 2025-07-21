@@ -1,0 +1,5 @@
+dataset_name: s23
+gateway1:
+  position: [0.25, 0.25, 0.865] # 受信機位置
+  orientation:  [ 0,  0, 0, 1]  # quaternion
+  # 受信機の向きの設定？
