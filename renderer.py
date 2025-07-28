@@ -126,6 +126,7 @@ class Renderer_spectrum(Renderer):
         att_i = torch.cumprod(torch.cat([torch.ones((alpha.shape[0], 1)).cuda(), 1.-alpha + 1e-10], -1), -1)[:, :-1]
         path = torch.cat([r_vals[...,1:], torch.Tensor([1e10]).cuda().expand(r_vals[...,:1].shape)], -1)
         path_loss = 0.025 / path
+        # このpath_lossはFriisの式に基づき経験的に導かれたRFIDでの値．そのため，Wi-Fiに利用するには変更する必要あり?
         # phase_i = torch.cumprod(torch.cat([torch.ones((alpha.shape[0], 1)), phase], -1), -1)[:, :-1]
         phase_i = torch.cumsum(torch.cat([torch.ones((alpha.shape[0], 1)).cuda(), phase], -1), -1)[:, :-1]
         phase_i = torch.exp(1j*phase_i)    # [N_rays, N_samples]
