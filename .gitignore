@@ -1,7 +1,7 @@
 .DS_Store/
-logs/
-data/
-datatools/
+#logs/
+#data/
+#datatools/
 __pycache__/
 .vscode/
 scripts/
